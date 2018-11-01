@@ -38,7 +38,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 12.1327 )
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -54,7 +54,7 @@ speed = 350
 
 frames = SubResource( 1 )
 animation = "run"
-frame = 5
+frame = 4
 playing = true
 offset = Vector2( 0, -5 )
 
