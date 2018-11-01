@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 22.423
 
-[node name="Coin" type="Area2D" index="0" groups=[
+[node name="Coin" type="Area2D" groups=[
 "coins",
 ]]
 
@@ -45,7 +45,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 3
+frame = 6
 playing = true
 _sections_unfolded = [ "Transform" ]
 
