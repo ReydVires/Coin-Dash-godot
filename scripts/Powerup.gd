@@ -23,3 +23,8 @@ func _on_Tween_tween_completed(object, key):
 
 func _on_Lifetime_timeout():
 	queue_free()
+
+func _on_Powerup_area_entered(area):
+	var offset = 30
+	if area.is_in_group("obstacles"):
+		position = Vector2(rand_range(offset, screensize.x - offset), rand_range(offset, screensize.y - offset))

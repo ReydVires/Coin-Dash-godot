@@ -72,16 +72,18 @@ func game_over():
 	$EndSound.play()
 	playing = false
 	$GameTimer.stop()
+	#Make all children deleted
 	for coin in $CoinContainer.get_children():
 		coin.queue_free()
 	$HUD.show_game_over()
 	$Player.die()
 
 func _on_PowerupTimer_timeout():
-	var p = Powerup.instance()
-	var offset = 30
-	add_child(p)
-	p.screensize = screensize
-	p.position = Vector2(
-			rand_range(offset, screensize.x - offset),
-			rand_range(offset, screensize.y - offset))
+	if playing:
+		var p = Powerup.instance()
+		var offset = 30
+		add_child(p)
+		p.screensize = screensize
+		p.position = Vector2(
+				rand_range(offset, screensize.x - offset),
+				rand_range(offset, screensize.y - offset))

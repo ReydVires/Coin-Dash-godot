@@ -17,7 +17,7 @@
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 12.0
 } ]
@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 22.423
 
-[node name="Coin" type="Area2D" groups=[
+[node name="Coin" type="Area2D" index="0" groups=[
 "coins",
 ]]
 
@@ -45,7 +45,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 6
+frame = 10
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -62,6 +62,17 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="area_entered" from="." to="." method="_on_Coin_area_entered"]
+
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
